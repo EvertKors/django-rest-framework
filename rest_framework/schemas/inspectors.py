@@ -424,6 +424,7 @@ class AutoSchema(ViewInspector):
 
         # Core API supports the following request encodings over HTTP...
         supported_media_types = {
+            'application/vnd.api+json',
             'application/json',
             'application/x-www-form-urlencoded',
             'multipart/form-data',
