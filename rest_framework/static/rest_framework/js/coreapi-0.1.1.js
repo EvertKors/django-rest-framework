@@ -615,7 +615,13 @@ var parseResponse = function parseResponse(response, decoders, responseCallback)
     if (responseCallback) {
       responseCallback(response, text);
     }
-    decoders[1].mediaType = 'application/vnd.api+json';
+    for (i = 0, len = decoders.length; i < len; i++) {
+      if (decoders[i].mediaType = 'application/json')
+      {
+         decoders[i].mediaType = 'application/vnd.api+json';
+      }
+    }  
+    
     var contentType = response.headers.get('Content-Type');
     var decoder = utils.negotiateDecoder(decoders, contentType);
     var options = { url: response.url };
