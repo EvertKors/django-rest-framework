@@ -616,7 +616,7 @@ var parseResponse = function parseResponse(response, decoders, responseCallback)
       responseCallback(response, text);
     }
     for (i = 0, len = decoders.length; i < len; i++) {
-      if (decoders[i].mediaType = 'application/json')
+      if (decoders[i].mediaType == 'application/json')
       {
          decoders[i].mediaType = 'application/vnd.api+json';
       }
