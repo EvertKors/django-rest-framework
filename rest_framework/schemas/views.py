@@ -7,7 +7,7 @@ from rest_framework import exceptions, renderers
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework.views import APIView
-
+from rest_framework_json_api.renderers import JSONRenderer 
 
 class SchemaView(APIView):
     _ignore_model_permissions = True
@@ -21,11 +21,11 @@ class SchemaView(APIView):
         if self.renderer_classes is None:
             if renderers.BrowsableAPIRenderer in api_settings.DEFAULT_RENDERER_CLASSES:
                 self.renderer_classes = [
-                    renderers.CoreJSONRenderer,
+                    renderers.JSONRenderer,
                     renderers.BrowsableAPIRenderer,
                 ]
             else:
-                self.renderer_classes = [renderers.CoreJSONRenderer]
+                self.renderer_classes = [renderers.JSONRenderer]
 
     def get(self, request, *args, **kwargs):
         schema = self.schema_generator.get_schema(request, self.public)
