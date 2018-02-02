@@ -688,9 +688,9 @@ var HTTPTransport = function () {
       Object.assign(requestOptions.headers, this.headers);
 
       if (hasBody) {
-        if (link.encoding === 'application/json') {
+        if (link.encoding === 'application/vnd.api+json') {
           requestOptions.body = JSON.stringify(formParams);
-          requestOptions.headers['Content-Type'] = 'application/json';
+          requestOptions.headers['Content-Type'] = 'application/vnd.api+json';
         } else if (link.encoding === 'multipart/form-data') {
           var form = new this.FormData();
 
